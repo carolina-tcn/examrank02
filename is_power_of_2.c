@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   is_power_of_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carolinatacconis <marvin@42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 18:27:45 by carolinat         #+#    #+#             */
-/*   Updated: 2024/03/14 18:40:24 by carolinat        ###   ########.fr       */
+/*   Created: 2024/03/23 12:57:09 by carolinat         #+#    #+#             */
+/*   Updated: 2024/03/23 13:12:07 by carolinat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+int	is_power_of_2(unsigned int n)
 {
-	int	i;
-
-	i = -1;
-	while (str[++i])
-		write(1, &str[i], 1);
+	if (n == 0)
+		return (0);
+	return ((n & (n - 1)) == 0);
 }

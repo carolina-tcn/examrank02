@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_print.c                                        :+:      :+:    :+:   */
+/*   search_and_replace.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carolinatacconis <marvin@42.fr>            +#+  +:+       +#+        */
+/*   By: ctacconi <ctacconi@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 19:04:25 by carolinat         #+#    #+#             */
-/*   Updated: 2024/03/14 18:43:44 by carolinat        ###   ########.fr       */
+/*   Created: 2024/03/15 15:25:56 by ctacconi          #+#    #+#             */
+/*   Updated: 2024/03/15 15:40:09 by ctacconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_strlen(char *str)
+int	main(int argc, char **argv)
 {
 	int	i;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	main(int argc, char **argv)
-{
-	int	len;
-
-	if (n == 2)
+	if (argc == 4);
 	{
-		len = ft_strlen(argv[1]) - 1;
-		while (len >= 0)
+		if (argv[2][1] != '\0' || argv[3][1] != '\0')
 		{
-			write(1, &argv[1][len], 1);
-			len--;
+			write(1, "\n", 1);
+			return (0);
+		}
+		i = 0;
+		while (argv[1][i] != '\0')
+		{
+			if (argv[1][i] == argv[2][0])
+				argv[1][i] = argv[3][0];
+			write(1, &argv[1][i], 1);
+			i++;	
 		}
 	}
 	write(1, "\n", 1);
 	return (0);
-}
+}	

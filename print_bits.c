@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   print_bits.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carolinatacconis <marvin@42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 18:27:45 by carolinat         #+#    #+#             */
-/*   Updated: 2024/03/14 18:40:24 by carolinat        ###   ########.fr       */
+/*   Created: 2024/03/20 12:58:38 by carolinat         #+#    #+#             */
+/*   Updated: 2024/03/20 13:13:33 by carolinat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+void	print_bits(unsigned char octet)
 {
-	int	i;
+	int	i = 7;
+	char	bits;
 
-	i = -1;
-	while (str[++i])
-		write(1, &str[i], 1);
+	while (i >= 0)
+	{
+		bits = ((octet >> i) & 1) + '0';
+		write(1, &bits, 1);
+		i--;
+	}
 }

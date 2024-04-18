@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_list.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carolinatacconis <marvin@42.fr>            +#+  +:+       +#+        */
+/*   By: ctacconi <ctacconi@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 18:27:45 by carolinat         #+#    #+#             */
-/*   Updated: 2024/03/14 18:40:24 by carolinat        ###   ########.fr       */
+/*   Created: 2024/04/04 10:37:41 by ctacconi          #+#    #+#             */
+/*   Updated: 2024/04/05 12:39:32 by ctacconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef FT_LIST_H
+# define FT_LIST_H
 
-void	ft_putstr(char *str)
+typedef struct	s_list
 {
-	int	i;
-
-	i = -1;
-	while (str[++i])
-		write(1, &str[i], 1);
+	struct s_list	*next;
+	void			*data;
+					t_list;
 }
+
+#endif

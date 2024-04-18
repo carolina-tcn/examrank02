@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strspn.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carolinatacconis <marvin@42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 18:27:45 by carolinat         #+#    #+#             */
-/*   Updated: 2024/03/14 18:40:24 by carolinat        ###   ########.fr       */
+/*   Created: 2024/03/23 11:48:12 by carolinat         #+#    #+#             */
+/*   Updated: 2024/03/23 12:20:42 by carolinat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+size_t	ft_strspn(const char *s, const char *accept)
 {
-	int	i;
+	const char *t_s = s;
+	const char *t_accept = accept;
 
-	i = -1;
-	while (str[++i])
-		write(1, &str[i], 1);
+	while (*t_s)
+	{
+		while (1)
+		{
+			if (*t_s == *t_accept)
+				break ;
+			else if (*t_accept++ == '\0')
+				return (t_s - s);
+		}
+		t_s++;
+	}
+	return (t_s - s);
 }

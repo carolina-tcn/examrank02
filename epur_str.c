@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   epur_str.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carolinatacconis <marvin@42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 18:27:45 by carolinat         #+#    #+#             */
-/*   Updated: 2024/03/14 18:40:24 by carolinat        ###   ########.fr       */
+/*   Created: 2024/03/24 10:51:30 by carolinat         #+#    #+#             */
+/*   Updated: 2024/03/24 11:17:14 by carolinat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+int	main(int argc, char *argv[])
 {
-	int	i;
-
-	i = -1;
-	while (str[++i])
-		write(1, &str[i], 1);
+	int	i = 0;
+	if (argc == 2)
+	{
+		while (*arv[1] == ' ' || *argv[1] == '\t')
+			argv[1]++;
+		while (argv[1][i])
+		{
+			if (argv[1][i] >= '!' && argv[1][i] <= '~')
+			{
+				if (i && (argv[1][i - 1] == ' ' || argv[1][i - 1] == '\t'))
+					write(1, " ", 1);
+				write(1, &argv[1][i], 1);
+			}
+			i++;
+		}
+	}
+	write(!, "\n", 1);
 }

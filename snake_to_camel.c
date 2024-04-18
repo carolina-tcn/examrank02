@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   snake_to_camel.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carolinatacconis <marvin@42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 18:27:45 by carolinat         #+#    #+#             */
-/*   Updated: 2024/03/14 18:40:24 by carolinat        ###   ########.fr       */
+/*   Created: 2024/03/20 13:05:04 by carolinat         #+#    #+#             */
+/*   Updated: 2024/03/20 13:11:42 by carolinat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+int	main(int argc, char *argv[])
 {
-	int	i;
-
-	i = -1;
-	while (str[++i])
-		write(1, &str[i], 1);
+	if (argc == 2)
+	{
+		int	i = 0;
+		while (argv[1][i])
+		{
+			if (argv[1][i] == '_')
+				i++;
+			if (argv[1][i - 1] == '_')
+				argv[1][i] -= 32;
+			write(1, &str[1][i], 1);
+			i++;
+		}
+	}
+	write (1, "\n", 1);
+	return (0);
 }

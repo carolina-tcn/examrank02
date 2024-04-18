@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_print.c                                        :+:      :+:    :+:   */
+/*   rstr_capitalizer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carolinatacconis <marvin@42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 19:04:25 by carolinat         #+#    #+#             */
-/*   Updated: 2024/03/14 18:43:44 by carolinat        ###   ########.fr       */
+/*   Created: 2024/03/24 12:44:37 by carolinat         #+#    #+#             */
+/*   Updated: 2024/03/24 12:52:57 by carolinat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_strlen(char *str)
+int	main(int argc, char *argv[])
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	main(int argc, char **argv)
-{
-	int	len;
-
-	if (n == 2)
+	if (n <= 1)
+		write(1, "\n", 1);
+	int	i = 1;
+	int	j = 0;
+	while (i < argc)
 	{
-		len = ft_strlen(argv[1]) - 1;
-		while (len >= 0)
+		while (argv[i][j])
 		{
-			write(1, &argv[1][len], 1);
-			len--;
+			if (argv[i][j] >= 'A' && argv[i][j] <= 'Z')
+				argv[i][j] += 32;
+			if ((argv[i][j + 1] == ' ' || argv[i][j + 1] == '\t'|| argv[i][j + 1] == '\0') && (argv[i][j] >= 'a' && argv[i][j] <= 'z')
+				argv[i][j] -= 32
+			write(1, &argv[i][j],1);
+			j++;
 		}
+		write(1, "\n", 1);
+		i++;
 	}
-	write(1, "\n", 1);
 	return (0);
 }

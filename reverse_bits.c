@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   reverse_bits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carolinatacconis <marvin@42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 18:27:45 by carolinat         #+#    #+#             */
-/*   Updated: 2024/03/14 18:40:24 by carolinat        ###   ########.fr       */
+/*   Created: 2024/03/18 19:12:21 by carolinat         #+#    #+#             */
+/*   Updated: 2024/03/20 13:14:19 by carolinat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+unsigned char	reverse_bits(unsigned char octet)
 {
-	int	i;
+	unsigned char	out;
 
-	i = -1;
-	while (str[++i])
-		write(1, &str[i], 1);
+	out = 0;
+	out += ((octet & 128) >> 7);
+	out += ((octet & 64) >> 5);
+	out += ((octet & 32) >> 3);
+	out += ((octet & 16) >> 1);
+	out += ((octet & 8) << 1);
+	out += ((octet & 4) << 3);
+	out += ((octet & 2) << 5);
+	out += ((octet & 1) << 7);
+	return (out);
 }

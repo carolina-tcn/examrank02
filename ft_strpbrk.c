@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strpbrk.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carolinatacconis <marvin@42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 18:27:45 by carolinat         #+#    #+#             */
-/*   Updated: 2024/03/14 18:40:24 by carolinat        ###   ########.fr       */
+/*   Created: 2024/03/23 12:38:55 by carolinat         #+#    #+#             */
+/*   Updated: 2024/03/23 12:53:23 by carolinat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+//function locates the first occurrence in the string s of any of the bytes in the string accept
+char	*ft_strpbrk(const char *s1, const char *s2)
 {
-	int	i;
-
-	i = -1;
-	while (str[++i])
-		write(1, &str[i], 1);
+	int	i = 0;
+	
+	while (*s1)
+	{
+		while (s2[i])
+		{
+			if (*s1 == s2[i])
+				return ((char *)s1);
+			i++;
+		}
+		s1++;
+	}
 }

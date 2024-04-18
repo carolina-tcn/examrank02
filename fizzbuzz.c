@@ -1,22 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   fizzbuzz.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carolinatacconis <marvin@42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 18:27:45 by carolinat         #+#    #+#             */
-/*   Updated: 2024/03/14 18:40:24 by carolinat        ###   ########.fr       */
+/*   Created: 2024/03/20 22:05:16 by carolinat         #+#    #+#             */
+/*   Updated: 2024/03/20 22:23:11 by carolinat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+void	ft_putnbr(int n)
+{
+	char c;
+	
+	if (n > 9)
+		ft_putnbr(n / 10);
+	c = (n % 10) + '0';	
+	write(1, &c, 1);
+}
+
+int	main(void)
 {
 	int	i;
-
-	i = -1;
-	while (str[++i])
-		write(1, &str[i], 1);
+	
+	i = 1;
+	while (i <= 100)
+	{
+		if (i % 3 == 0 && i % 5 == 0)
+			write(1, "fizzbuzz", 8);
+		else if (i % 3 == 0)
+			write(1, "fizz", 4);
+		else if (i % 5 == 0)
+			write(1, "buzz", 4);
+		else
+			ft_putnbr(i);
+		write(1, "\n", 1);
+		i++;	
+	}
+	return (0);
 }

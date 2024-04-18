@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carolinatacconis <marvin@42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 18:27:45 by carolinat         #+#    #+#             */
-/*   Updated: 2024/03/14 18:40:24 by carolinat        ###   ########.fr       */
+/*   Created: 2024/03/20 12:23:23 by carolinat         #+#    #+#             */
+/*   Updated: 2024/03/20 12:56:55 by carolinat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+char	*ft_strrev(char *str)
 {
-	int	i;
+	int	len = 0;
+	int	i = 0;
+	char	tmp = 0;
 
-	i = -1;
-	while (str[++i])
-		write(1, &str[i], 1);
+	while (str[len])
+		len++;
+	len--;
+	while (i < 0)
+	{
+		tmp = str[len];
+		str[len] = str[i];
+		str[i] = tmp;
+		i++;
+		len--;
+	}
+	return (str);
 }

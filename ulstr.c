@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_print.c                                        :+:      :+:    :+:   */
+/*   ulstr.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carolinatacconis <marvin@42.fr>            +#+  +:+       +#+        */
+/*   By: ctacconi <ctacconi@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 19:04:25 by carolinat         #+#    #+#             */
-/*   Updated: 2024/03/14 18:43:44 by carolinat        ###   ########.fr       */
+/*   Created: 2024/03/15 14:19:01 by ctacconi          #+#    #+#             */
+/*   Updated: 2024/03/15 15:19:39 by ctacconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_strlen(char *str)
+int	main(int argc, char **argv)
 {
 	int	i;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	main(int argc, char **argv)
-{
-	int	len;
-
-	if (n == 2)
+	if (argc == 2)
 	{
-		len = ft_strlen(argv[1]) - 1;
-		while (len >= 0)
+		i = 0;	
+		while (argv[1][i] != '\0')
 		{
-			write(1, &argv[1][len], 1);
-			len--;
+			if (argv[1][i] >= 'A' && argv[1][i] <= 'Z')
+				argv[1][i] += 32;
+			if (argv[1][i] >= 'a' && argv[1][i] <= 'z')
+				argv[1][i] -= 32;
+			write(1, &argv[1][i], 1);
+			i++;
 		}
 	}
 	write(1, "\n", 1);

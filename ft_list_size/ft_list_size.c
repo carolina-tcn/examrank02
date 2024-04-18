@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_list_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carolinatacconis <marvin@42.fr>            +#+  +:+       +#+        */
+/*   By: ctacconi <ctacconi@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 18:27:45 by carolinat         #+#    #+#             */
-/*   Updated: 2024/03/14 18:40:24 by carolinat        ###   ########.fr       */
+/*   Created: 2024/04/04 10:25:58 by ctacconi          #+#    #+#             */
+/*   Updated: 2024/04/05 12:40:08 by ctacconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_list_size.h"
 
-void	ft_putstr(char *str)
+int	ft_list_size(t_list *begin_list)
 {
-	int	i;
+	int	i = 0;
+	char *tmp;
+	tmp = begin_list;
 
-	i = -1;
-	while (str[++i])
-		write(1, &str[i], 1);
+	while (tmp != NULL)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
 }
