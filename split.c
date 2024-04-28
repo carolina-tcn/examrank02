@@ -6,48 +6,49 @@
 /*   By: ctacconi <ctacconi@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 17:05:52 by ctacconi          #+#    #+#             */
-/*   Updated: 2024/04/10 17:31:09 by ctacconi         ###   ########.fr       */
+/*   Updated: 2024/04/28 17:21:06 by ctacconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_space(char c)
+#include <stdlib.h>
+
+char	*ft_strncpy(char *dst, char *src, int n)
 {
-	if (c == ' ')
-		return (1);
-	if (c == '\t')
-		return (1);
-	if (c == '\n')
-		return (1);
-	if (c == '\v')
-		return (1);
-	if (c == '\f')
-		return (1);
-	if (c == '\r')
-		return (1);
-	return (0);
-}
-int	count_words(char *str)
-{
-	int	count;
 	int	i;
 
-	count = 0;
 	i = 0;
-	while (str[i])
+	while (i < n)
 	{
-		if (!is_space(str[i]) && (is_space(str[i + 1]) || str[i + 1] == '\0'))
-			count++;
+		dst[i] = src[j];
 		i++;
 	}
-	return (count);
+	dst[i] = '\0';
+	return (dst);
 }
-
-char	**ft_split(char **str)
+char	**ft_split(char *str)
 {
-	char	**matrix;
-	int		num_words;
-	num_words = count_words(str);
-	matrix = malloc(sizeof(char *) * (num_words + 1));
-	matrix[words] = NULL;
-	
+	int	i = 0;
+	int	j = 0;
+	int	k = 0;
+	char **word;
+
+	word = (char **)malloc(sizeof(char *) * 1000);
+	if (!word)
+		return (NULL);
+	while (str[i] != '\0')
+	{
+		while (str[i] != '\0' && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
+			i++;
+		j = i;
+		while (str[i] != '\0' && !(str[i] == ' ' || str[i] == '\t' || str[i] == '\n' ))
+			i++;
+		if (i > j)
+		{
+			word[k] = malloc(sizeof(char) * 1000);
+			ft_strncpy(word[k], &str[j], i - j);
+			k++;
+		}
+	}
+	word[k] = NULL;
+	return (word);
 }
