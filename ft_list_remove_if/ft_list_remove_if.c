@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   ft_list_remove_if.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carolinatacconis <marvin@42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/22 20:12:26 by carolinat         #+#    #+#             */
-/*   Updated: 2024/04/22 20:13:49 by carolinat        ###   ########.fr       */
+/*   Created: 2024/04/22 20:22:14 by carolinat         #+#    #+#             */
+/*   Updated: 2024/04/22 20:22:17 by carolinat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_H
-# define FT_LIST_H
+#include "ft_list.h"
 
-typeder struct	s_list
+void	ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
-	struct s_list	*next;
-	void		*data;
-		t_list;
+	
 }
-
-#endif

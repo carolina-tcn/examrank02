@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   rev_print2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carolinatacconis <marvin@42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/22 20:12:26 by carolinat         #+#    #+#             */
-/*   Updated: 2024/04/22 20:13:49 by carolinat        ###   ########.fr       */
+/*   Created: 2024/04/29 17:13:34 by carolinat         #+#    #+#             */
+/*   Updated: 2024/04/29 17:13:41 by carolinat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_H
-# define FT_LIST_H
-
-typeder struct	s_list
+int	main(int argc, char **argv)
 {
-	struct s_list	*next;
-	void		*data;
-		t_list;
-}
+	int	i;
 
-#endif
+	if (argc == 2)
+	{
+		i = 0;
+		while (argv[1][i])
+			i++;
+		i--;
+		while (i >= 0)
+		{
+			write(1, &argv[1][i], 1);
+			i--;
+		}
+	}
+	write(1, "\n", 1);
+	return (0);
+}
