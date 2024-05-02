@@ -22,13 +22,13 @@ int	main(int argc, char *argv[])
 
 		if (str[2][0] == '+')
 			printf("%i", uno + dos);
-		if (str[2][0] == '-')
+		else if (str[2][0] == '-')
 			printf("%i", uno - dos);
-		if (str[2][0] == '*')
+		else if (str[2][0] == '*')
 			printf("%i", uno * dos);
-		if (str[2][0] == '/')
+		else if (str[2][0] == '/')
 			printf("%i", uno / dos);
-		if (str[2][0] == "%")
+		else if (str[2][0] == "%")
 			printf("%i", uno % dos);
 	}   
 	printf("\n");
