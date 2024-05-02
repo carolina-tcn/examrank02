@@ -17,6 +17,7 @@ int	main(int argc, char *argv[])
 	if (argc <= 1)
 		write(1, "\n", 1);
 	int	i = 1;
+	int	j = 0;
 
 	while (i < argc)
 	{
