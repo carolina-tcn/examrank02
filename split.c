@@ -52,3 +52,18 @@ char	**ft_split(char *str)
 	word[k] = NULL;
 	return (word);
 }
+
+/*int	main(void)
+{
+	int i = 0;
+	char *str = "carol hola que tal";
+	char **split = ft_split(str);
+
+	while (split[i])
+	{
+		printf("%s\n", split[i]);
+		i++;
+	}
+	free(split);
+	return (0);
+}*/
