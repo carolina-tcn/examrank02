@@ -62,6 +62,7 @@ char	**ft_split(char *str)
 	while (split[i])
 	{
 		printf("%s\n", split[i]);
+  		free(split[i]);
 		i++;
 	}
 	free(split);
