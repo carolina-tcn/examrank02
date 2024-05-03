@@ -28,10 +28,10 @@ int	main(int argc, char *argv[])
 		while (argv[1][i] != '\0')
 		{
 		/*ya está evaluando si el valor en arr[(int)str[1][i]] es distinto de cero. En C, cualquier valor distinto de cero se considera como verdadero en un contexto booleano, mientras que cero se considera falso. Por lo tanto, si arr[(int)str[1][i]] es igual a 1, la condición se evaluará como verdadera, y si es igual a 0, se evaluará como falsa.*/
-			if (arr[(int)str[1][i])
+			if (arr[(int)argv[1][i])
 			{
-				write(1, &str[1][i], 1);
-				arr[(int)str[1][i] = 0);
+				write(1, &argv[1][i], 1);
+				arr[(int)argv[1][i] = 0);
 			}
 			i++;
 		}
