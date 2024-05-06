@@ -15,7 +15,7 @@
 int	ft_list_size(t_list *begin_list)
 {
 	int	i = 0;
-	char *tmp;
+	t_list *tmp;
 	tmp = begin_list;
 
 	while (tmp != NULL)
