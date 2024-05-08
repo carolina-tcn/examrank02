@@ -19,11 +19,16 @@ void	put_nb(int n)
 	write(1, &"0123456789"[n % 10], 1);
 }
 
-int	main(int argc, char *argv[])
+int	main(int argc, char **argv)
 {
-	if (argc > 1)
-		put_nb(argc - 1);
+	(void)argv;
+	if (argc < 2)
+	{
+		write(1, "0\n", 2);
+		return (0);
+	}
 	else
-		write (1, "0", 1);
+		putnbr(argc - 1);
 	write(1, "\n", 1);
+	return (0);
 }
