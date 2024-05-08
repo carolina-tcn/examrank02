@@ -26,7 +26,7 @@ void	ft_reverse(char *str)
 			len--;
 		j = len;
 		while (j >= 0 && str[j] != ' ' && s[j] != '\t')
-		j--;
+			j--;
 		if (first_word == 0)
 			write(1, " ", 1);
 		write(1, s + j + 1, len - 1);
