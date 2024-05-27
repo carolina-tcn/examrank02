@@ -11,60 +11,85 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
-char	*ft_strncpy(char *dst, char *src, int n)
+int	count_words(char *str)
 {
 	int	i;
+	int count;
 
+	count = 0;
 	i = 0;
-	while (i < n)
+	while (str[i])
 	{
-		dst[i] = src[j];
+		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
+			count++;
 		i++;
 	}
-	dst[i] = '\0';
-	return (dst);
+	return (count);
 }
-char	**ft_split(char *str)
-{
-	int	i = 0;
-	int	j = 0;
-	int	k = 0;
-	char **word;
 
-	word = (char **)malloc(sizeof(char *) * 1000);
+char	*pego(char *str, int start, int len)
+{
+	char *word;
+	int i;
+
+	i = 0;
+	word = malloc(sizeof(char) * (len + 1));
 	if (!word)
 		return (NULL);
-	while (str[i] != '\0')
+	while (i < len)
 	{
-		while (str[i] != '\0' && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
-			i++;
-		j = i;
-		while (str[i] != '\0' && !(str[i] == ' ' || str[i] == '\t' || str[i] == '\n' ))
-			i++;
-		if (i > j)
-		{
-			word[k] = malloc(sizeof(char) * 1000);
-			ft_strncpy(word[k], &str[j], i - j);
-			k++;
-		}
+		word[i] = str[start + i];
+		i++;
 	}
-	word[k] = NULL;
+	word[i] = '\0';
 	return (word);
 }
 
-/*int	main(void)
+char	**ft_split(char *str)
 {
-	int i = 0;
-	char *str = "carol hola que tal";
-	char **split = ft_split(str);
+	int		words;
+	int		i;
+	int		j;
+	int		start;
+	char	**matrix;
 
-	while (split[i])
+	i = 0;
+	j = 0;
+	start = 0;
+	words = count_words(str);
+	matrix = malloc(sizeof(char *) * (words + 1));
+	if (!matrix)
+		return (NULL);
+	while (str[i])
 	{
-		printf("%s\n", split[i]);
-  		free(split[i]);
+		if (i > 0 && str[i] != ' ' && str[i - 1] == ' ')
+			start = i;
+		if (i == 0 && str[i] != ' ')
+			start = i;
+		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
+		{
+			matrix[j] = pego(str, start, i - start + 1);
+			j++;
+		}
 		i++;
 	}
-	free(split);
-	return (0);
+	matrix[j] = NULL;
+	return (matrix);
+}
+
+/*int main()
+{
+	char **result;
+	int i;
+
+	i = 0;
+
+	result = ft_split("hola que tal como estas");
+	while (result[i])
+	{
+		printf("%s\n", result[i]);
+		i++;
+	}
 }*/
