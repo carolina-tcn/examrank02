@@ -12,6 +12,7 @@
 
 #include <stdlib.h>
 
+//OJO!!! hace overflow y time-out
 int	*ft_rrange(int start, int end)
 {
 	int	*array;
