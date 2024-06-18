@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int argc, char *argv[])
+#include <unistd.h>
+
+int	main(int argc, char **argv)
 {
 	if (argc == 2)
 	{
@@ -21,10 +23,10 @@ int	main(int argc, char *argv[])
 				i++;
 			if (argv[1][i - 1] == '_')
 				argv[1][i] -= 32;
-			write(1, &str[1][i], 1);
+			write(1, &argv[1][i], 1);
 			i++;
 		}
 	}
-	write (1, "\n", 1);
+	write(1, "\n", 1);
 	return (0);
 }
