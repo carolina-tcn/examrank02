@@ -29,7 +29,7 @@ void	ft_reverse(char *str)
 			j--;
 		if (first_word == 0)
 			write(1, " ", 1);
-		write(1, s + j + 1, len - 1);
+		write(1, str + j + 1, len - 1);
 		first_word = 0;
 		len = j;
 	}
