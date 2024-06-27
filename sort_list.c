@@ -14,26 +14,23 @@
 
 t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 {
-	t_list	*tmp;
-	int flag = 1;
-	tmp = lst;
-	int	num;
+	t_list	*first;
+	int flag = 0;
+	first = lst;
+	int	tmp;
 
-	while (flag)
+	while (first && first->next)
 	{
-		flag = 0;
-		while (tmp && tmp->next)
+		if (!cmp(first->data, first->next->data))
 		{
-			if (!cmp(tmp->data, tmp->next->data))
-			{
-				flag = 1;
-				num = tmp->data;
-				tmp->data = tmp->next->data;
-				tmp->next->data = num;
-			}
-		tmp = tmp->next;
+			flag = 1;
+			tmp = first->next->data;
+			first->next->data = first->data;
+			first->data = tmp;
+			first = lst;
 		}
-	tmp = lst;
+		if (flag = 0)
+			first = first->next;
 	}
-return (tmp);
+	return (lst);
 }
